@@ -18,12 +18,13 @@
 		"default_popup": "popup.html"
 	},
 	"permissions":[
-		"contentSettings","tabs","*://api.shanbay.com/bdc/search/*"
+		"contentSettings","tabs","*://*.shanbay.com/*"
 	],
 	"content_scripts": [
         {
             "matches": ["*://www.theguardian.com/politics/2015/may/28/david-cameron-sets-off-on-mission-to-win-over-european-leaders"],
-            "js": ["js/jquery-2.2.3.min.js","js/contents.js"]
+            "js": ["js/jquery-2.2.3.min.js","js/contents.js"],
+            "css":["css/style.css"]
         }
     ]
 }
