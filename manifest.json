@@ -1,6 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "扇贝作业",
+	"author": "MuTong Yang",
 	"version": "1.0",
 	"description": "扇贝作业",
 	"icons": {
@@ -15,7 +16,18 @@
 		},
 		"default_title": "扇贝作业",
 		"default_popup": "popup.html"
-	}
-
-	
+	},
+	"permissions":[
+		"contentSettings","tabs","*://*.shanbay.com/*"
+	],
+	"content_scripts": [
+        {
+            "matches": ["*://www.theguardian.com/politics/2015/may/28/david-cameron-sets-off-on-mission-to-win-over-european-leaders"],
+            "js": ["js/jquery-2.2.3.min.js","js/contents.js"],
+            "css":["css/style.css"]
+        }
+    ]
 }
+
+
+//思路：使用脚本注入的方式将脚本注入到需要修改的页面中，包括jQuery和自制的js文件，同时使用通信方式与注入脚本进行通信
