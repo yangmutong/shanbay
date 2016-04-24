@@ -1,7 +1,18 @@
-*{
-	padding:0;
-	margin: 0;
-}
-html,body{
-	width: 100%;
-}
+
+.pageWrapper{
+            text-align: center;
+        }
+        .page{
+            color: #428bca;
+            display: inline-block;
+            border:1px solid #ddd;
+            border-radius: 4px;
+            margin: 0 4px;
+            padding:0 10px;
+            text-decoration: none;
+            line-height: 25px;
+            height:25px;
+        }
+        .currentPage{
+            background-color: #22aadd;
+        }
