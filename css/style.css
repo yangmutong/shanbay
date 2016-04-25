@@ -1,18 +1,62 @@
 
-.pageWrapper{
-            text-align: center;
-        }
-        .page{
-            color: #428bca;
-            display: inline-block;
-            border:1px solid #ddd;
-            border-radius: 4px;
-            margin: 0 4px;
-            padding:0 10px;
-            text-decoration: none;
-            line-height: 25px;
-            height:25px;
-        }
-        .currentPage{
-            background-color: #22aadd;
-        }
+.pageWrapper
+{
+    text-align: center;
+}
+.page
+{
+    line-height: 25px;
+
+    display: inline-block;
+
+    height: 25px;
+    margin: 0 4px;
+    padding: 0 10px;
+
+    text-decoration: none;
+
+    color: #428bca;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.currentPage
+{
+    background-color: #2ad;
+}
+
+#tip
+{
+    position: fixed;
+
+    display: none;
+
+    width: 150px;
+    height: auto;
+
+    border-radius: 5px 5px;
+    background-color: white;
+    box-shadow: 0 0 5px gray;
+    z-index: 999;
+}
+
+#result
+{
+    display: none;
+}
+
+#play
+{
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+	border-radius: 12px 12px;
+	background-color: red;
+	box-shadow: 0 0 5px gray;
+    background-size: 24px 24px;
+}
+
+#play:active{
+	box-shadow: 0 0 0 white;
+}
+
