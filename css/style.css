@@ -51,12 +51,12 @@
     width: 24px;
     height: 24px;
 	border-radius: 12px 12px;
-	background-color: red;
+	background-color: #FF2323;
 	box-shadow: 0 0 5px gray;
     background-size: 24px 24px;
 }
 
 #play:active{
-	box-shadow: 0 0 0 white;
+	box-shadow: 0 0 0 #fff;
 }
 
