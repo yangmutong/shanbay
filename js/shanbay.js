@@ -1,20 +1,24 @@
 var $btn = $("#btn");
-var currentId;
 var status;
+setStatus();
 $btn.click(function(event) {
 	if (event.target.id == "btn") {
 		if($(this).html() == "开启"){
 			$(this).html("关闭");
-			localStorage["" + currentId] = "open";
+			localStorage["status"] = "open";
 			$(this).addClass("changed");
-			sendMessage(currentId,{order:"clear"});
+			chrome.storage.sync.set({"status":"clear"},function(){
+				console.log("设置清除");
+			});
 			//切换页面，这里清除页面格式；
 		}
 		else{
 			$(this).html("开启");
-			localStorage["" + currentId] = "closed";
+			localStorage["status"] = "closed";
 			$(this).removeClass("changed");
-			sendMessage(currentId,{order:"reload"});
+			chrome.storage.sync.set({"status":"reload"},function(){
+				console.log("设置重载");
+			});
 			//切换页面，将页面还原为原来的格式；
 		}
 	}
@@ -31,29 +35,9 @@ function setBtn(){
 	}
 }
 
-function getCurrentTabId(callback){
-	chrome.tabs.query({
-	active:true,
-	currentWindow:true,
-	},function(tabsArr){
-		callback(tabsArr[0].id);
-	});
-
-}
-
-function setStatus(id){
-	currentId = id;
-	status = localStorage["" + currentId];
+function setStatus(){
+	status = localStorage["status"];
 	status = status?status:"closed";
 	setBtn();
-}
-
-getCurrentTabId(setStatus);
-
-
-function sendMessage(tabId,message){
-	chrome.tabs.sendMessage(tabId,message,function(response){
-		console.log(response);
-	})	
 }
 
